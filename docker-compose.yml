@@ -1,0 +1,12 @@
+services:
+  lab-eksperimen:
+    build: .
+    container_name: renn_mlops_lab
+    ports:
+      - "8888:8888"
+    volumes:
+      # Petakan folder saat ini (.) ke /app di dalam container
+      # Jadi file ipynb yang kamu edit di browser akan tersimpan di laptop juga
+      - .:/app
+    environment:
+      - JUPYTER_TOKEN=renn123  # Password login notebook biar gampang
