@@ -1,4 +1,0 @@
-flask
-prometheus-client
-psutil
-werkzeug
