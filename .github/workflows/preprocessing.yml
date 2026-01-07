@@ -2,6 +2,9 @@ name: Preprocessing Pipeline
 
 on:
   push:
+    branches:
+      - master
+      - main
     paths:
       - preprocessing/**
       - credit_risk_raw/**
@@ -11,7 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -20,6 +24,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        python -m pip install --upgrade pip
         pip install pandas scikit-learn
 
     - name: Run preprocessing
